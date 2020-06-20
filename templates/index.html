@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>socket io</h1>
+    <p>para probar esta app abrir la consola de javascrit y enviar un mensaje mediante la funcion enviarMensaje('el mensaje')</p>
+    <!-- SOCKET IO -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.dev.js"></script>
+    <script>
+        //Guardamos socket io en la variable socket
+        const socket = io();
+        
+        //Definimos la funcion para enviar mensajes al servidor
+        function enviarMensage(mensage){
+            //Mandamos un mensaje al servidor
+            socket.send(mensage)
+        }
+
+        //Enviamos un mensaje de prueba
+        enviarMensage('Hola Mundo')
+
+        //Recivimos los mensajes del servidor
+        socket.on('message', (msg)=>{
+            console.log(msg)
+        })
+        
+    </script>
+</body>
+</html>
